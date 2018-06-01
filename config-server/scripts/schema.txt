@@ -1,0 +1,16 @@
+create database deepnlu;
+create user 'deepnlu'@'localhost' identified by '1234';
+grant all on deepnlu.* to 'deepnlu'@'localhost';
+
+use deepnlu;
+CREATE TABLE robot_config (
+  robot_id VARCHAR(255) NOT NULL,
+  robot_type VARCHAR(255) NOT NULL,
+  robot_key VARCHAR(255) NOT NULL,
+  cfg_json TEXT,
+  last_update TIMESTAMP,
+  	
+  PRIMARY KEY (robot_id, robot_type, robot_key),
+  KEY(robot_type),
+  KEY(robot_id)
+ );
